@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Also uses Custom::LexSlotType and Custom::LexIntent sample template version 1.0.3 as an external reference, to supply the slots for the Intent.",
+  "Description": "This Also uses Custom::LexSlotType and Custom::LexIntent sample template version 1.0.3 as an external reference, to supply the slots for the Intent.",
   "Parameters": {
     "BotName": {
       "Type": "String",
@@ -227,9 +227,7 @@
     },
     "OrderPizzaBot": {
       "Type": "Custom::LexBot",
-      "DependsOn": [
-        "OrderPizza"
-      ],
+      "DependsOn": ["OrderPizza"],
       "Properties": {
         "ServiceToken": {
           "Fn::ImportValue": "cfn-lex-bot-1-0-3-ServiceToken"
@@ -284,19 +282,13 @@
     "OrderPizzaBotChecksum": {
       "Description": "The checksum of the Lex Bot for this stack.",
       "Value": {
-        "Fn::GetAtt": [
-          "OrderPizzaBot",
-          "checksum"
-        ]
+        "Fn::GetAtt": ["OrderPizzaBot", "checksum"]
       }
     },
     "OrderPizzaBotVersion": {
       "Description": "The version of the Lex Bot for this stack.",
       "Value": {
-        "Fn::GetAtt": [
-          "OrderPizzaBot",
-          "version"
-        ]
+        "Fn::GetAtt": ["OrderPizzaBot", "version"]
       }
     }
   }
